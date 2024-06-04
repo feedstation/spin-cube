@@ -1,0 +1,76 @@
+/* cube 'holder': */
+.viewport {
+    --size: 160px;
+    display: block;
+    perspective: calc(var(--size) * 6);
+    perspective-origin: 50% var(--size);
+    transform: scale(0.6);
+    /* animation: delayAppearance 100ms; */
+}
+
+/* cube: */
+.cube {
+    margin: auto;
+    /* we set this transition delay dynamically later based on if move is touch or drag : */
+    transition: transform 0 ease-out; 
+    transform-style: preserve-3d;
+    transform: rotateX(-42deg) rotateY(-23deg);
+    height: calc(var(--size) * 2);
+    width: calc(var(--size) * 2);
+}
+.cube:hover {
+    cursor: grab;
+}
+
+/* cube sides: */
+.cube > div {
+    position: absolute;
+    height: 96%;
+    width: 96%;
+    padding: 2%;
+    background-color: rgba(50, 50, 50, 0.85);
+    font-size: 1em;
+    line-height: 1em;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 3%;
+}
+.cube > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cube > div:nth-child(1) {
+    transform: rotateX(90deg) translateZ(var(--size));
+}
+.cube > div:nth-child(2) {
+    transform: translateZ(var(--size));
+}
+.cube > div:nth-child(3) {
+    transform: rotateY(90deg) translateZ(var(--size));
+}
+.cube > div:nth-child(4) {
+    transform: rotateY(180deg) translateZ(var(--size));
+}
+.cube > div:nth-child(5) {
+    transform: rotateY(-90deg) translateZ(var(--size));
+}
+.cube > div:nth-child(6) {
+    transform: rotateX(-90deg) rotate(180deg) translateZ(var(--size));
+}
+
+/* cube tiles: */
+/* MJB tile definitions, e.g., colors and sticker shapes, could become separate, custom, per-cube stylesheets pointed to by an attribute in the custom live-cube el: */
+.cube > div > div {
+    /* fit 3 across for 3 x 3 cube, so margin + flex < 33%: */
+    margin: 2%;
+    flex: 1 0 29%;
+    background-color: gray;
+    border-radius: 12%;
+}
+.cube > div > div[data-paint='Y'] {
+    background-color: gold;
+}
+.cube > div > div[data-paint='y'] {
+    background-color: gold;
+    opacity: 0.3;
+}
