@@ -1,18 +1,17 @@
 /* cube 'holder': */
 .viewport {
-    --size: 160px;
+    --size: 130px;
     display: block;
     perspective: calc(var(--size) * 6);
     perspective-origin: 50% var(--size);
     transform: scale(0.6);
-    /* animation: delayAppearance 100ms; */
 }
 
 /* cube: */
 .cube {
     margin: auto;
     /* we set this transition delay dynamically later based on if move is touch or drag : */
-    transition: transform 0 ease-out; 
+    transition: transform 0 ease-out;
     transform-style: preserve-3d;
     transform: rotateX(-42deg) rotateY(-23deg);
     height: calc(var(--size) * 2);
@@ -24,6 +23,8 @@
 
 /* cube sides: */
 .cube > div {
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
     height: 96%;
     width: 96%;
@@ -34,10 +35,6 @@
     color: white;
     border: 1px solid gray;
     border-radius: 3%;
-}
-.cube > div {
-    display: flex;
-    flex-wrap: wrap;
 }
 .cube > div:nth-child(1) {
     transform: rotateX(90deg) translateZ(var(--size));
