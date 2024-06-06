@@ -2,6 +2,8 @@
 
 Rubik's cube custom HTML element
 
+Has hooks to allow rotation with touch, mouse, and keyboard
+
 Live demo of initial version on jsFiddle: https://jsfiddle.net/mikeypie/t8mvh0up/
 
 ## Purpose
